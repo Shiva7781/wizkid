@@ -58,4 +58,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+// specific food
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const food = await Food.findById(id);
+    res.status(200).send(food);
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+});
+
 module.exports = router;
