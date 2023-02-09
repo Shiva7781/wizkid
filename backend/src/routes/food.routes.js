@@ -40,6 +40,8 @@ router.patch("/update/:id", authAdmin, async (req, res) => {
 router.get("/", async (req, res) => {
   const { name, ingredients } = req.query;
   const queryObject = {};
+  let searchQuery = {};
+
   if (name) {
     queryObject.name = { $regex: name, $options: "i" };
   }
@@ -49,9 +51,21 @@ router.get("/", async (req, res) => {
       $elemMatch: { $regex: ingredients, $options: "i" },
     };
   }
+  // console.log(queryObject);
+
+  if (name || ingredients) {
+    searchQuery = {
+      $or: [
+        { name: queryObject.name },
+        { ingredients: queryObject.ingredients },
+      ],
+    };
+
+    console.log("searchQuery:", searchQuery);
+  }
 
   try {
-    const Foods = await Food.find(queryObject);
+    const Foods = await Food.find(searchQuery);
     res.status(200).send(Foods);
   } catch (err) {
     res.status(500).json(err.message);
