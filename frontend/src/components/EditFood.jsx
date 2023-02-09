@@ -16,6 +16,8 @@ const EditFood = () => {
     // eslint-disable-next-line
   }, []);
 
+  // ----------------- Getting the single food which will be automatically filled in the inputs ----------------------------
+
   const fetchFood = async () => {
     const { data } = await axios.get(
       `https://wizkid.onrender.com/api/food/${id}`
@@ -28,7 +30,7 @@ const EditFood = () => {
     e.preventDefault();
     let { name, value } = e.target;
 
-    if (name === "recipe" || name === "ingredients") {
+    if (name === "recipe" || name === "ingredients") { 
       value = value.split("|");
     }
 
@@ -43,7 +45,9 @@ const EditFood = () => {
           authorization: `Bearer ${user?.accessToken}`,
         },
       };
-
+      
+      // ------------------- updating the data ---------------------
+      
       let { data } = await axios.patch(
         `https://wizkid.onrender.com/api/food/update/${id}`,
         editedFood,

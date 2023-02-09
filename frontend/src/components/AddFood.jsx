@@ -32,6 +32,7 @@ const AddFood = () => {
     console.log("newFood:", newFood);
 
     if (
+      // checking whether all the fields are not empty
       !name ||
       !image ||
       !ingredients.length ||
@@ -55,6 +56,7 @@ const AddFood = () => {
       );
 
       console.log("data", data);
+      alert("New Data Added");
 
       navigate(-1);
     } catch (err) {

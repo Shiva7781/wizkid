@@ -15,6 +15,7 @@ const Food = () => {
     // eslint-disable-next-line
   }, [searchTerm]);
 
+  // ---------------- Getting the food from backend ------------------------------
   const fetchFood = async () => {
     try {
       const { data } = await axios.get(
@@ -31,7 +32,7 @@ const Food = () => {
   const foodDetail = (v) => {
     // console.log("v:", v);
 
-    navigate(`/food/${v._id}`);
+    navigate(`/food/${v._id}`); // navigating the user to the particular food which user clicks
   };
 
   console.log(foodData);
@@ -48,7 +49,7 @@ const Food = () => {
       <h1 className="search_heading">
         Search Your Meal By Name or Ingredients
       </h1>
-      
+
       <input
         type="text"
         value={searchTerm}

@@ -18,6 +18,7 @@ const SingleFood = () => {
     // eslint-disable-next-line
   }, []);
 
+  // ----------------- Getting the single food which user clicked on home page ----------------------------
   const fetchSignleFood = async () => {
     const { data } = await axios.get(
       `https://wizkid.onrender.com/api/food/${id}`
@@ -30,7 +31,8 @@ const SingleFood = () => {
     // console.log(user._id, food.userID);
 
     if (user._id === food.userID) {
-      navigate(`/edit/${food._id}`);
+      // checking if food is created by the user or not
+      navigate(`/edit/${food._id}`); // navigating user to the edit page,
     } else {
       alert("You are not allowed to do this");
     }

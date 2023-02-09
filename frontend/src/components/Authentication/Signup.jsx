@@ -1,9 +1,11 @@
 import "./LoginSignup.css";
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Signup = () => {
+  const navigate = useNavigate();
+
   const Name = useRef();
   const Email = useRef();
   const Password = useRef();
@@ -29,7 +31,9 @@ const Signup = () => {
       );
 
       console.log("data:", data);
-      alert("Register");
+      alert("Registration Successful");
+
+      navigate("/");
     } catch (err) {
       console.log("err:", err.response?.data || err.message);
       alert(err.response?.data || err.message);
