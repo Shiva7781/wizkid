@@ -11,11 +11,15 @@ const Food = () => {
 
   useEffect(() => {
     fetchFood();
-  }, []);
+
+    // eslint-disable-next-line
+  }, [searchTerm]);
 
   const fetchFood = async () => {
     try {
-      const { data } = await axios.get(`https://wizkid.onrender.com/api/food`);
+      const { data } = await axios.get(
+        `https://wizkid.onrender.com/api/food?name=${searchTerm}&ingredients=${searchTerm}`
+      );
 
       console.log("data:", data);
       setFoodData(data);
@@ -30,30 +34,37 @@ const Food = () => {
     navigate(`/food/${v._id}`);
   };
 
+  console.log(foodData);
   return (
     <>
-      <button onClick={logout}>Logout</button>
-      <input
-        type="text"
-        value={searchTerm}
-        placeholder="Search name or ingredients"
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <div className="FoodData">
-        {foodData
-          ?.filter((val) => {
-            return val.name.toLowerCase().includes(searchTerm.toLowerCase());
-          })
-          .map((v) => {
-            const { _id, name, image } = v;
+      <div className="foodTop">
+        <input
+          type="text"
+          value={searchTerm}
+          placeholder="Search name or ingredients"
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button onClick={logout}>Logout</button>
+      </div>
 
-            return (
-              <div key={_id} onClick={() => foodDetail(v)}>
-                <img src={image} alt="" />
-                <h3>{name}</h3>
-              </div>
-            );
-          })}
+      <div className="FoodData">
+        {searchTerm && foodData.length === 0 ? (
+          <h3>No Data Available</h3>
+        ) : (
+          <>
+            {searchTerm &&
+              foodData.map((v) => {
+                const { _id, name, image } = v;
+
+                return (
+                  <div key={_id} onClick={() => foodDetail(v)}>
+                    <img src={image} alt="" />
+                    <h3>{name}</h3>
+                  </div>
+                );
+              })}
+          </>
+        )}
       </div>
     </>
   );

@@ -1,9 +1,14 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { AuthState } from "./Context/AuthContextProvider";
 
-const Singlefood = () => {
+const SingleFood = () => {
+  let { user } = AuthState();
+  // console.log("user:", user);
+
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [food, setFood] = useState([]);
 
@@ -21,42 +26,53 @@ const Singlefood = () => {
     setFood(data);
   };
 
-  // const { _id, name, image, ingredients, recipe, description } = v;
+  const handleNavigate = () => {
+    // console.log(user._id, food.userID);
+
+    if (user._id === food.userID) {
+      navigate(`/edit/${food._id}`);
+    } else {
+      alert("You are not allowed to do this");
+    }
+  };
+
   return (
     <div className="SingleFood">
-      <div>
+      <div className="SingleFoodLeft">
         <h3>{food.name}</h3>
         <img src={food.image} alt="" />
       </div>
-      <div>
+
+      <div className="SingleFoodRight">
+        <button onClick={handleNavigate}>Edit</button>
         <div>
-          Ingredients
+          {/* <p>{food.ingredients}</p> */}
+          <b> Ingredients:</b>
           {food.ingredients?.map((v, i) => (
-            <p>
-              Sr {i + 1}. {v}
+            <p key={i}>
+              {i + 1}. {v}
             </p>
           ))}
         </div>
 
         <hr />
         <div>
+          <b> Recipe:</b>
           {food.recipe?.map((v, i) => (
-            <p>
-              Sr {i + 1}. {v}
-            </p>
-          ))}
-        </div>
-        <hr />
-        <div>
-          {food.recipe?.map((v, i) => (
-            <p>
+            <p key={i}>
               Step {i + 1}. {v}
             </p>
           ))}
+        </div>
+
+        <hr />
+        <div>
+          <b> Description:</b>
+          <p>{food.description}</p>
         </div>
       </div>
     </div>
   );
 };
 
-export default Singlefood;
+export default SingleFood;

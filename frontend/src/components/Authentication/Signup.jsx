@@ -44,7 +44,7 @@ const Signup = () => {
           <label>
             <input
               type="text"
-              placeholder="name"
+              placeholder="Enter name"
               ref={Name}
               onChange={submitData}
             />
@@ -54,7 +54,7 @@ const Signup = () => {
           <label>
             <input
               type="email"
-              placeholder="email"
+              placeholder="Enter email"
               ref={Email}
               onChange={submitData}
             />
@@ -64,16 +64,14 @@ const Signup = () => {
           <label>
             <input
               type="password"
-              placeholder="password"
+              placeholder="Enter password"
               ref={Password}
               onChange={submitData}
             />
           </label>
         </div>
         <div>
-          <button type="submit" onClick={() => handleSignup()}>
-            SUBMIT
-          </button>
+          <button onClick={() => handleSignup()}>SUBMIT</button>
         </div>
       </form>
       <div>

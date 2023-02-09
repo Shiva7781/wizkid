@@ -32,7 +32,7 @@ const Login = () => {
           <label>
             <input
               type="email"
-              placeholder="email"
+              placeholder="Enter email"
               ref={Email}
               onChange={submitData}
             />
@@ -42,16 +42,14 @@ const Login = () => {
           <label>
             <input
               type="password"
-              placeholder="password"
+              placeholder="Enter password"
               ref={Password}
               onChange={submitData}
             />
           </label>
         </div>
         <div>
-          <button type="submit" onClick={handleLogin}>
-            SUBMIT
-          </button>
+          <button onClick={handleLogin}>SUBMIT</button>
         </div>
       </form>
       <div>

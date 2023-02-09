@@ -10,14 +10,38 @@
   margin: auto;
 }
 
+.foodTop {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  margin-left: 43%;
+  /* border:  1px solid red; */
+}
+
+.foodTop input {
+  border-radius: 5px;
+  padding: 0.7rem;
+  width: 191px;
+}
+
+.foodTop button {
+  width: 99px;
+  padding: 0.7rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .FoodData {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 3rem;
+  place-items: center;
 }
 
 .FoodData div {
   /* border: 1px solid red; */
+  display: grid;
+  place-items: center;
   margin: 1rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 1rem;
@@ -29,17 +53,43 @@
   width: 16rem;
   height: 16rem;
   border-radius: 1rem;
+  margin-bottom: 1rem;
 }
 
 .SingleFood {
   display: flex;
-  border: 1px solid red;
+  gap: 7rem;
+  margin: 2rem;
   justify-content: center;
   align-items: center;
   text-align: left;
+  border: 1px solid red;
 }
-.SingleFood img {
+
+.SingleFoodLeft {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.SingleFoodLeft h3 {
+  padding: 1rem;
+}
+
+.SingleFoodLeft img {
   width: 16rem;
   height: 16rem;
   border-radius: 1rem;
+}
+
+.EditFood form {
+  /* border: 1px solid red; */
+  padding: 3rem;
+}
+
+.EditFood form label,
+input {
+  border: 1px solid red;
+  margin: 1rem;
+  padding: 1rem;
 }
