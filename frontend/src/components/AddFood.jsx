@@ -66,59 +66,64 @@ const AddFood = () => {
   return (
     <>
       <div className="EditFood">
-        <h3>Edit Food</h3>
         <form onSubmit={handleEdit}>
-          <label>
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter name"
-              value={newFood.name}
-              onChange={handleEdit}
-            />
-          </label>
           <br />
-          <label>
-            <input
-              type="text"
-              name="image"
-              placeholder="Enter image URL"
-              value={newFood.image}
-              onChange={handleEdit}
-            />
-          </label>
+          <label>Food Name</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter name"
+            value={newFood.name}
+            onChange={handleEdit}
+          />
           <br />
-          <label>
-            <input
-              type="text"
-              name="ingredients"
-              placeholder="Enter ingredients"
-              value={newFood.ingredients?.join("|")}
-              onChange={handleEdit}
-            />
-          </label>
           <br />
-          <label>
-            <input
-              type="text"
-              name="recipe"
-              placeholder="Enter recipe"
-              value={newFood.recipe?.join("|")}
-              onChange={handleEdit}
-            />
-          </label>
+          <label>Food Image</label>
+          <input
+            type="text"
+            name="image"
+            placeholder="Enter image URL"
+            value={newFood.image}
+            onChange={handleEdit}
+          />
           <br />
-          <label>
-            <input
-              type="text"
-              name="description"
-              placeholder="Enter description"
-              value={newFood.description}
-              onChange={handleEdit}
-            />
-          </label>
+          <br />
+          <label>Ingredients</label>
+          <br />
+          <input
+            type="text"
+            name="ingredients"
+            placeholder="Enter ingredients"
+            value={newFood.ingredients?.join("|")}
+            onChange={handleEdit}
+          />
+          <br />
+          <br />
+          <label> Recipe</label>
+          <br />
+          <input
+            type="text"
+            name="recipe"
+            placeholder="Enter recipe"
+            value={newFood.recipe?.join("|")}
+            onChange={handleEdit}
+          />
+          <br />
+          <br />
+          <label> Description</label>
+          <br />
+          <input
+            type="text"
+            name="description"
+            placeholder="Enter description"
+            value={newFood.description}
+            onChange={handleEdit}
+          />
+          <br />
+          <button onClick={submitData} className="submit_btn">
+            Add
+          </button>
         </form>
-        <button onClick={submitData}>SUBMIT</button>
       </div>
     </>
   );

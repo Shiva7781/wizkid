@@ -39,15 +39,16 @@ const SingleFood = () => {
   return (
     <div className="SingleFood">
       <div className="SingleFoodLeft">
-        <h3>{food.name}</h3>
+        <h1 className="food_title">{food.name}</h1>
         <img src={food.image} alt="" />
       </div>
 
       <div className="SingleFoodRight">
-        <button onClick={handleNavigate}>Edit</button>
+        <button onClick={handleNavigate} className="edit_button">
+          Edit
+        </button>
         <div>
-          {/* <p>{food.ingredients}</p> */}
-          <b> Ingredients:</b>
+          <h2 className="titles"> Ingredients:</h2>
           {food.ingredients?.map((v, i) => (
             <p key={i}>
               {i + 1}. {v}
@@ -57,7 +58,7 @@ const SingleFood = () => {
 
         <hr />
         <div>
-          <b> Recipe:</b>
+          <h2 className="titles"> Recipe:</h2>
           {food.recipe?.map((v, i) => (
             <p key={i}>
               Step {i + 1}. {v}
@@ -67,7 +68,7 @@ const SingleFood = () => {
 
         <hr />
         <div>
-          <b> Description:</b>
+          <h2 className="titles"> Description:</h2>
           <p>{food.description}</p>
         </div>
       </div>

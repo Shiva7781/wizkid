@@ -37,15 +37,25 @@ const Food = () => {
   console.log(foodData);
   return (
     <>
-      <div className="foodTop">
-        <input
-          type="text"
-          value={searchTerm}
-          placeholder="Search name or ingredients"
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <button onClick={logout}>Logout</button>
+      <div className="butn_div">
+        <button onClick={() => navigate("/add")} className="add_btn">
+          Add Food
+        </button>
+        <button onClick={logout} className="logout">
+          Logout
+        </button>
       </div>
+      <h1 className="search_heading">
+        Search Your Meal By Name or Ingredients
+      </h1>
+      
+      <input
+        type="text"
+        value={searchTerm}
+        placeholder="Search food by name or ingredients"
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="search_input"
+      />
 
       <div className="FoodData">
         {searchTerm && foodData.length === 0 ? (

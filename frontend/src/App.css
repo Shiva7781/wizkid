@@ -4,37 +4,54 @@
   box-sizing: border-box;
 }
 
+body {
+  background-image: url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=2000&q=60");
+  background-size: 1700px 880px;
+  object-fit: cover;
+}
 .App {
   font-family: sans-serif;
   text-align: center;
   margin: auto;
 }
-
-.foodTop {
+.butn_div {
+  /* border: 1px solid red; */
   display: flex;
   justify-content: space-between;
-  margin: 1rem;
-  margin-left: 43%;
-  /* border:  1px solid red; */
+  width: 95%;
+  margin: 20px auto;
 }
 
-.foodTop input {
-  border-radius: 5px;
-  padding: 0.7rem;
-  width: 191px;
+.search_heading {
+  margin: 20px 0 -55px 0;
 }
 
-.foodTop button {
-  width: 99px;
-  padding: 0.7rem;
-  border-radius: 5px;
+.logout,
+.add_btn {
+  /* margin: 1rem 0 0 80rem; */
+  padding: 10px;
+  width: 120px;
+  font-size: 18px;
   cursor: pointer;
+  background-color: crimson;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+.search_input {
+  border-radius: 5px;
+  padding: 0.9rem;
+  width: 35rem;
+  margin: 7% auto auto auto;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .FoodData {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
+  gap: 0.7rem;
   place-items: center;
 }
 
@@ -47,6 +64,7 @@
   border-radius: 1rem;
   padding: 1rem;
   cursor: pointer;
+  background-color: azure;
 }
 
 .FoodData div > img {
@@ -56,40 +74,96 @@
   margin-bottom: 1rem;
 }
 
+/* SingleFood */
+
 .SingleFood {
   display: flex;
   gap: 7rem;
   margin: 2rem;
-  justify-content: center;
   align-items: center;
   text-align: left;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  line-height: 1.6rem;
 }
 
 .SingleFoodLeft {
   display: grid;
   place-items: center;
-  padding: 1rem;
+  padding: 1.2rem;
+  /* border: 1px solid red; */
+  border-radius: 10px;
+  width: 90%;
+  background-color: azure;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.SingleFoodLeft h3 {
-  padding: 1rem;
+.food_title {
+  /* border: 1px solid red; */
+  /* width: 100%; */
+  text-align: center;
+  padding: 0 0 1rem 0;
 }
-
 .SingleFoodLeft img {
   width: 16rem;
   height: 16rem;
   border-radius: 1rem;
 }
 
-.EditFood form {
+.SingleFoodRight {
   /* border: 1px solid red; */
-  padding: 3rem;
+  background-color: azure;
+  padding: 1rem;
+  border-radius: 10px;
 }
 
-.EditFood form label,
-input {
-  border: 1px solid red;
+.titles {
+  margin: 10px 0 10px 0;
+}
+
+.edit_button {
+  margin: 0 0 0 950px;
+  padding: 10px;
+  width: 90px;
+  background-color: crimson;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+}
+
+/* EditFood */
+
+.EditFood form {
+  /* border: 1px solid red; */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  width: 40%;
+  margin: 30px auto auto auto;
+  border-radius: 10px;
+  background-color: rgb(228, 222, 214);
+}
+
+.EditFood input {
+  /* border: 1px solid red; */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+  border: none;
+  width: 80%;
   margin: 1rem;
-  padding: 1rem;
+  padding: 1.1rem;
+}
+.EditFood label {
+  font-size: 1.3rem;
+}
+
+.submit_btn {
+  padding: 10px;
+  margin: 0 0 10px 0;
+  width: 90px;
+  background-color: crimson;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
 }

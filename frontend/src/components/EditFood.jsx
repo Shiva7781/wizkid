@@ -63,59 +63,64 @@ const EditFood = () => {
   return (
     <>
       <div className="EditFood">
-        <h3>Edit Food</h3>
         <form onSubmit={handleEdit}>
-          <label>
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter name"
-              value={editedFood?.name}
-              onChange={handleEdit}
-            />
-          </label>
           <br />
-          <label>
-            <input
-              type="text"
-              name="image"
-              placeholder="Enter image URL"
-              value={editedFood?.image}
-              onChange={handleEdit}
-            />
-          </label>
+          <label>Food Name</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter name"
+            value={editedFood?.name}
+            onChange={handleEdit}
+          />
           <br />
-          <label>
-            <input
-              type="text"
-              name="ingredients"
-              placeholder="Enter ingredients"
-              value={editedFood?.ingredients?.join("|")}
-              onChange={handleEdit}
-            />
-          </label>
           <br />
-          <label>
-            <input
-              type="text"
-              name="recipe"
-              placeholder="Enter recipe"
-              value={editedFood?.recipe?.join("|")}
-              onChange={handleEdit}
-            />
-          </label>
+          <label>Food Image</label>
+          <input
+            type="text"
+            name="image"
+            placeholder="Enter image URL"
+            value={editedFood?.image}
+            onChange={handleEdit}
+          />
           <br />
-          <label>
-            <input
-              type="text"
-              name="description"
-              placeholder="Enter description"
-              value={editedFood?.description}
-              onChange={handleEdit}
-            />
-          </label>
+          <br />
+          <label>Ingredients</label>
+          <br />
+          <input
+            type="text"
+            name="ingredients"
+            placeholder="Enter ingredients"
+            value={editedFood?.ingredients?.join("|")}
+            onChange={handleEdit}
+          />
+          <br />
+          <br />
+          <label> Recipe</label>
+          <br />
+          <input
+            type="text"
+            name="recipe"
+            placeholder="Enter recipe"
+            value={editedFood?.recipe?.join("|")}
+            onChange={handleEdit}
+          />
+          <br />
+          <br />
+          <label> Description</label>
+          <br />
+          <input
+            type="text"
+            name="description"
+            placeholder="Enter description"
+            value={editedFood?.description}
+            onChange={handleEdit}
+          />
+          <br />
+          <button onClick={submitData} className="submit_btn">
+            SUBMIT
+          </button>
         </form>
-        <button onClick={submitData}>SUBMIT</button>
       </div>
     </>
   );
