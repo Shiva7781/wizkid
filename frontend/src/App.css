@@ -9,3 +9,37 @@
   text-align: center;
   margin: auto;
 }
+
+.FoodData {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+}
+
+.FoodData div {
+  /* border: 1px solid red; */
+  margin: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.FoodData div > img {
+  width: 16rem;
+  height: 16rem;
+  border-radius: 1rem;
+}
+
+.SingleFood {
+  display: flex;
+  border: 1px solid red;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+.SingleFood img {
+  width: 16rem;
+  height: 16rem;
+  border-radius: 1rem;
+}
